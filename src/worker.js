@@ -17,6 +17,11 @@ function loadEyesDetectTrainingSet() {
 }
 
 function faceDetect(imageData) {
+
+	if (!cv.CascadeClassifier) {
+		return;
+	}
+	
 	loadFaceDetectTrainingSet();
 
 	let img = cv.matFromArray(imageData, 24); // 24 for rgba
